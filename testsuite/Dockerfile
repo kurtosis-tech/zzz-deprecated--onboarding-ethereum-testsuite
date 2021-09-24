@@ -9,6 +9,7 @@ RUN yarn install
 
 # Copy the code into the container
 COPY . .
+
 RUN yarn build 
 
 # Build the application

@@ -26,8 +26,6 @@ fi
 
 # >>>>>>>> Add custom testsuite parameters here <<<<<<<<<<<<<
 custom_params_json='{
-    "apiServiceImage" :"kurtosistech/example-microservices_api",
-    "datastoreServiceImage": "kurtosistech/example-microservices_datastore"
 }'
 # >>>>>>>> Add custom testsuite parameters here <<<<<<<<<<<<<
 

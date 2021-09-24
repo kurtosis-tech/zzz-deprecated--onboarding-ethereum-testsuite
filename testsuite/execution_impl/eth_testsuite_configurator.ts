@@ -1,8 +1,8 @@
-import { ExampleTestsuite } from "../testsuite_impl/example_testsuite";
+import { EthTestsuite } from "../testsuite_impl/eth_testsuite";
 import { TestSuite } from "kurtosis-testsuite-api-lib";
 import * as log from "loglevel";
 import { Result, err, ok } from "neverthrow";
-import { ExampleTestsuiteArgs } from "./example_testsuite_args";
+import { EthTestsuiteParams } from "./eth_testsuite_args";
 
 
 export class ExampleTestsuiteConfigurator {
@@ -18,18 +18,18 @@ export class ExampleTestsuiteConfigurator {
     }
 
     public parseParamsAndCreateSuite(paramsJsonStr: string): Result<TestSuite, Error> {       
-        const argsResult: Result<ExampleTestsuiteArgs, Error> = ExampleTestsuiteConfigurator.safeJsonParse(paramsJsonStr);
+        const argsResult: Result<EthTestsuiteParams, Error> = ExampleTestsuiteConfigurator.safeJsonParse(paramsJsonStr);
         if (argsResult.isErr()) {
             return err(argsResult.error);
         }
-        const args: ExampleTestsuiteArgs = argsResult.value;
+        const args: EthTestsuiteParams = argsResult.value;
         
         const validateArgsResult: Result<null, Error> = validateArgs(args);
         if (!validateArgsResult.isOk()) {
             return err(validateArgsResult.error);
         }
         
-        const suite: ExampleTestsuite = new ExampleTestsuite(args.apiServiceImage, args.datastoreServiceImage);
+        const suite: EthTestsuite = new EthTestsuite();
         return ok(suite);
     }
 
@@ -41,12 +41,7 @@ export class ExampleTestsuiteConfigurator {
     }
 }
 
-function validateArgs(args: ExampleTestsuiteArgs): Result<null, Error> {
-    if (args.apiServiceImage.trim() === "") {
-        return err(new Error("API service image is empty"));
-    }
-    if (args.datastoreServiceImage.trim() === "") {
-        return err(new Error("Datastore service image is empty"));
-    }
+function validateArgs(args: EthTestsuiteParams): Result<null, Error> {
+    // TODO Arg validation logic goes here
     return ok(null);
 }
