@@ -29,7 +29,7 @@ jobs:
       # Our build requires downloading images and Docker is restricting anonymous image pulls
       - run: echo "${DOCKER_PASSWORD}" | docker login -u ${DOCKER_USERNAME} --password-stdin
 
-      - run: bash scripts/build-and-run.sh all --client-id "${kurtosis_client_id}" --client-secret "${kurtosis_client_secret_DO_NOT_LOG}"
+      - run: bash scripts/build-and-run.sh all --client-id "${SIMULATED_TRIAL_USER_CLIENT_ID}" --client-secret "${SIMULATED_TRIAL_USER_CLIENT_SECRET}"
 
 workflows:
   build:
