@@ -21,27 +21,20 @@ export class BasicEthTest {
     public async setup(networkCtx: NetworkContext): Promise<Result<Network, Error>> {
 
         // TODO Replace with Ethereum network setup
-        /*
         log.info("Setting up Ethereum network...")
         const loadEthLambdaResult: Result<LambdaContext, Error> = await networkCtx.loadLambda(ETH_LAMBDA_ID, ETH_LAMBDA_IMAGE, "{}");
         if (loadEthLambdaResult.isErr()) {
             return err(loadEthLambdaResult.error);
         }
         const ethLambdaCtx: LambdaContext = loadEthLambdaResult.value;
-
+        
         const executeEthLambdaResult: Result<string, Error> = await ethLambdaCtx.execute("{}")
         if (executeEthLambdaResult.isErr()) {
             return err(executeEthLambdaResult.error);
         }
-        const executeEthLambdaResultObj: any = JSON.parse(executeEthLambdaResult.value);
-        */
-        const executeEthLambdaResultObj: any = "Kevin is stupdenous";
-        log.debug(executeEthLambdaResultObj);
-        log.debug(this);
-        this.executeEthLambdaResultObj = executeEthLambdaResultObj;
-        log.debug(this);
+        this.executeEthLambdaResultObj = JSON.parse(executeEthLambdaResult.value);
         log.info("Ethereum network set up successfully");
-
+        
 
         return ok(networkCtx)
     }
@@ -50,10 +43,7 @@ export class BasicEthTest {
         const networkCtx: NetworkContext = <NetworkContext>network;
 
         // TODO Replace with block number check
-        /*
         log.info("Verifying block number is increasing...");
-        log.debug(this);
-        log.debug(this.executeEthLambdaResultObj);
         const bootnodeServiceId: ServiceID = this.executeEthLambdaResultObj.bootnode_service_id;
         const bootnodeIp: string = this.executeEthLambdaResultObj.node_info[bootnodeServiceId].ip_addr_inside_network
         const bootnodeRpcProvider: ethers.providers.JsonRpcProvider = new ethers.providers.JsonRpcProvider(`http://${bootnodeIp}:8545`);
@@ -62,7 +52,6 @@ export class BasicEthTest {
             return err(new Error(""))
         }
         log.info("Verified that block number is increasing");
-        */
 
         return ok(null);
     }

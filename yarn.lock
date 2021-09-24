@@ -741,10 +741,10 @@ kurtosis-core-api-lib@0.16.0:
     loglevel "^1.7.1"
     neverthrow "^4.2.2"
 
-kurtosis-testsuite-api-lib@0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/kurtosis-testsuite-api-lib/-/kurtosis-testsuite-api-lib-0.7.0.tgz#f4b4d2cc6fe429bbbbf611d326a5142e31aef78c"
-  integrity sha512-pYa3XqiEqrCHCoN0xzZ144zbK8wyFPDpl3bgIWfZ3c5hKDCAp01uzYR0ecMT8QYxmQnNRkX2BlpCtNwE/75asw==
+kurtosis-testsuite-api-lib@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/kurtosis-testsuite-api-lib/-/kurtosis-testsuite-api-lib-0.7.1.tgz#e2a2004d80d2f0a409d9f3e59e085493f5f88e46"
+  integrity sha512-QTut7HcMl3M3nkR4rBiYfhgCWP4HzHBqrMpxncposI3vIpYDEnAd48EhjMf5W9rdG+P8Jk+xgOjtBeI5JD5tXw==
   dependencies:
     async-mutex "^0.3.1"
     dotenv "^10.0.0"
