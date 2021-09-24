@@ -2,12 +2,12 @@ import { EthTestsuite } from "../testsuite_impl/eth_testsuite";
 import { TestSuite } from "kurtosis-testsuite-api-lib";
 import * as log from "loglevel";
 import { Result, err, ok } from "neverthrow";
-import { EthTestsuiteParams } from "./eth_testsuite_args";
+import { EthTestsuiteParams } from "./eth_testsuite_params";
 
 
-export class ExampleTestsuiteConfigurator {
+export class EthTestsuiteConfigurator {
 
-    private static safeJsonParse = Result.fromThrowable(JSON.parse, ExampleTestsuiteConfigurator.parseUnknownExceptionValueToError);
+    private static safeJsonParse = Result.fromThrowable(JSON.parse, EthTestsuiteConfigurator.parseUnknownExceptionValueToError);
     
     constructor () {}
     
@@ -18,7 +18,7 @@ export class ExampleTestsuiteConfigurator {
     }
 
     public parseParamsAndCreateSuite(paramsJsonStr: string): Result<TestSuite, Error> {       
-        const argsResult: Result<EthTestsuiteParams, Error> = ExampleTestsuiteConfigurator.safeJsonParse(paramsJsonStr);
+        const argsResult: Result<EthTestsuiteParams, Error> = EthTestsuiteConfigurator.safeJsonParse(paramsJsonStr);
         if (argsResult.isErr()) {
             return err(argsResult.error);
         }
