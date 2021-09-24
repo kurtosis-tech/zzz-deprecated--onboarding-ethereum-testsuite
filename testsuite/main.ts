@@ -1,14 +1,11 @@
-import { ExampleTestsuiteConfigurator } from "./execution_impl/eth_testsuite_configurator";
+import { EthTestsuiteConfigurator } from "./execution_impl/eth_testsuite_configurator";
 import { TestSuiteExecutor } from "kurtosis-testsuite-api-lib";
 import * as log from "loglevel";
 
 const SUCCESS_EXIT_CODE: number = 0;
 const FAILURE_EXIT_CODE: number = 1;
 
-// >>>>>>>>>>>>>>>>>>> REPLACE WITH YOUR OWN CONFIGURATOR <<<<<<<<<<<<<<<<<<<<<<<<
-const configurator: ExampleTestsuiteConfigurator = new ExampleTestsuiteConfigurator();
-// >>>>>>>>>>>>>>>>>>> REPLACE WITH YOUR OWN CONFIGURATOR <<<<<<<<<<<<<<<<<<<<<<<<
-
+const configurator: EthTestsuiteConfigurator = new EthTestsuiteConfigurator();
 const suiteExecutor: TestSuiteExecutor = new TestSuiteExecutor(configurator);
 suiteExecutor.run().then(suiteExecutorResult => {
     let exitCode: number = SUCCESS_EXIT_CODE;
