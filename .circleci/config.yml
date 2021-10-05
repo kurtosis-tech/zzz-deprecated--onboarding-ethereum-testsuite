@@ -29,6 +29,11 @@ jobs:
       # Our build requires downloading images and Docker is restricting anonymous image pulls
       - run: echo "${DOCKER_PASSWORD}" | docker login -u ${DOCKER_USERNAME} --password-stdin
 
+      - run: |
+          echo "deb [trusted=yes] https://1rRcWo-cTcNiKak7X5tkD7slaIg4GDXrdU@apt.fury.io/kurtosis-tech/ /" | sudo tee /etc/apt/sources.list.d/kurtosis.list
+          sudo apt update
+          sudo apt install kurtosis
+
       - run: bash scripts/build-and-run.sh all --client-id "${SIMULATED_TRIAL_USER_CLIENT_ID}" --client-secret "${SIMULATED_TRIAL_USER_CLIENT_SECRET}"
 
 workflows:
