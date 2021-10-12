@@ -1,10 +1,10 @@
-import { Network, NetworkContext, LambdaContext, LambdaID, ServiceID, ContainerCreationConfig, ContainerCreationConfigBuilder, ContainerRunConfig, StaticFileID, ContainerRunConfigBuilder, ServiceContext, PortBinding } from "kurtosis-core-api-lib";
+import { Network, NetworkContext, LambdaContext, LambdaID, ServiceID,  ServiceContext, PortBinding } from "kurtosis-core-api-lib";
 import { TestConfigurationBuilder } from "kurtosis-testsuite-api-lib";
 import * as log from "loglevel";
 import { Result, ok, err } from "neverthrow";
 import { ethers } from "ethers";
 
-const ETH_LAMBDA_IMAGE: string = "kurtosistech/ethereum-kurtosis-lambda:0.2.3";
+const ETH_LAMBDA_IMAGE: string = "kurtosistech/ethereum-kurtosis-lambda:0.2.4";
 const ETH_LAMBDA_ID: LambdaID = "eth-lambda";
 
 export class BasicEthTest {
