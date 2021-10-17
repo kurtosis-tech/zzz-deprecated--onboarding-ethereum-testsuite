@@ -1,14 +1,14 @@
-import { Network, NetworkContext, LambdaContext, LambdaID, ServiceID,  ServiceContext, PortBinding } from "kurtosis-core-api-lib";
+import { Network, NetworkContext, ModuleContext, ModuleID, ServiceID,  ServiceContext, PortBinding } from "kurtosis-core-api-lib";
 import { TestConfigurationBuilder } from "kurtosis-testsuite-api-lib";
 import * as log from "loglevel";
 import { Result, ok, err } from "neverthrow";
 import { ethers } from "ethers";
 
-const ETH_LAMBDA_IMAGE: string = "kurtosistech/ethereum-kurtosis-lambda:0.2.4";
-const ETH_LAMBDA_ID: LambdaID = "eth-lambda";
+const ETH_MODULE_IMAGE: string = "kurtosistech/ethereum-kurtosis-module";
+const ETH_MODULE_ID: ModuleID = "eth-module";
 
 export class BasicEthTest {
-    private executeEthLambdaResultObj: any;
+    private executeEthModuleResultObj: any;
 
     constructor() {}
 
@@ -16,7 +16,7 @@ export class BasicEthTest {
         builder.withSetupTimeoutSeconds(60).withRunTimeoutSeconds(60);
     }
 
-    // Set up an Ethereum network using the Lambda
+    // Set up an Ethereum network using the module
     public async setup(networkCtx: NetworkContext): Promise<Result<Network, Error>> {
 
         // TODO Replace with Ethereum network setup
