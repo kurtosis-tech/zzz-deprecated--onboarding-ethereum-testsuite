@@ -11,5 +11,5 @@ bash scripts/build-and-run.sh all
 To see help information, execute:
 
 ```
-bash scripts/build-and-run.sh help'
+bash scripts/build-and-run.sh help
 ```
