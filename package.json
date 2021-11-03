@@ -9,7 +9,7 @@
     "axios": "^0.21.1",
     "ethers": "^5.4.7",
     "http-status-codes": "^2.1.4",
-    "kurtosis-testsuite-api-lib": "^0.11.0",
+    "kurtosis-testsuite-api-lib": "0.12.1",
     "loglevel": "^1.7.1",
     "neverthrow": "^4.2.2"
   },
