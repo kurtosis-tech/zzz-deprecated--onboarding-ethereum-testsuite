@@ -11,5 +11,5 @@ root_dirpath="$(dirname "${script_dirpath}")"
 # ==================================================================================================
 cd "${root_dirpath}"
 yarn install
-yarn test
 yarn build
+yarn test
