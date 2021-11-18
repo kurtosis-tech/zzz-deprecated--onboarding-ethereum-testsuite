@@ -8,6 +8,6 @@
         "strict": true
     },
     "include": [
-        "testsuite/**/*"
+        "src/**/*"
     ]
 }
