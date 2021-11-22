@@ -34,7 +34,7 @@ jobs:
           sudo apt update
           sudo apt install kurtosis-cli
 
-      - run: bash scripts/build-and-run.sh all --client-id "${SIMULATED_TRIAL_USER_CLIENT_ID}" --client-secret "${SIMULATED_TRIAL_USER_CLIENT_SECRET}"
+      - run: bash scripts/build.sh
 
 workflows:
   build:
@@ -50,7 +50,6 @@ workflows:
       - check_code:
           context:
             - docker-user
-            - simulated-trial-user
           filters:
             branches:
               ignore:
