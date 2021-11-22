@@ -7,7 +7,6 @@ version: 2.1
 
 orbs:
   kurtosis-docs-checker: kurtosis-tech/docs-checker@0.2.0
-  node: circleci/node@4.7.0
 
 executors:
   ubuntu_vm:
@@ -35,9 +34,7 @@ jobs:
           sudo apt update
           sudo apt install kurtosis-cli
 
-      - node/install:
-          node-version: 16.13.0
-          install-yarn: true
+      - run: npm install yarn
       - run: bash scripts/build.sh
 
 workflows:
