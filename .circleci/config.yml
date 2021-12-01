@@ -11,7 +11,8 @@ orbs:
 executors:
   ubuntu_vm:
     machine:
-      image: ubuntu-1604:202007-01
+      # Available images found here: https://circleci.com/docs/2.0/configuration-reference/#available-machine-images
+      image: ubuntu-2004:202111-01
 
 jobs:
   check_code:
@@ -29,12 +30,15 @@ jobs:
       # Our build requires downloading images and Docker is restricting anonymous image pulls
       - run: echo "${DOCKER_PASSWORD}" | docker login -u ${DOCKER_USERNAME} --password-stdin
 
+      # Install Kurtosis & start the engine
       - run: |
           echo "deb [trusted=yes] https://apt.fury.io/kurtosis-tech/ /" | sudo tee /etc/apt/sources.list.d/kurtosis.list
           sudo apt update
           sudo apt install kurtosis-cli
+      - run: kurtosis engine start
 
-      - run: bash scripts/build-and-run.sh all --client-id "${SIMULATED_TRIAL_USER_CLIENT_ID}" --client-secret "${SIMULATED_TRIAL_USER_CLIENT_SECRET}"
+      - run: npm install -g yarn
+      - run: bash scripts/build.sh
 
 workflows:
   build:
@@ -50,7 +54,6 @@ workflows:
       - check_code:
           context:
             - docker-user
-            - simulated-trial-user
           filters:
             branches:
               ignore:
