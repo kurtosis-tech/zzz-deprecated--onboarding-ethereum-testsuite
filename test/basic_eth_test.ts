@@ -14,6 +14,7 @@ describe("Ethereum", function() {
     describe('#basicTest', function() {
         const enclaveId: string = `basic-ethereum-test_${Date.now()}`;
 
+        // Create enclave
         let kurtosisCtx: KurtosisContext;
         let enclaveCtx: EnclaveContext;
         before(async function() {
@@ -29,13 +30,15 @@ describe("Ethereum", function() {
             enclaveCtx = createEnclaveResult.value;
         });
 
+        // Run test logic
         it("should start the Ethereum cluster and verify it's producting blocks", async function() {
             // TODO Replace with Ethereum network setup
 
             // TODO Replace with block number check
         })
 
-        before(async function() {
+        // Stop the enclave after the test is done
+        after(async function() {
             if (kurtosisCtx !== undefined && enclaveCtx !== undefined) {
                 const stopEnclaveResult: Result<null, Error> = await kurtosisCtx.stopEnclave(enclaveId)
                 if (stopEnclaveResult.isErr()) {

@@ -30,10 +30,12 @@ jobs:
       # Our build requires downloading images and Docker is restricting anonymous image pulls
       - run: echo "${DOCKER_PASSWORD}" | docker login -u ${DOCKER_USERNAME} --password-stdin
 
+      # Install Kurtosis & start the engine
       - run: |
           echo "deb [trusted=yes] https://apt.fury.io/kurtosis-tech/ /" | sudo tee /etc/apt/sources.list.d/kurtosis.list
           sudo apt update
           sudo apt install kurtosis-cli
+      - run: kurtosis engine start
 
       - run: npm install -g yarn
       - run: bash scripts/build.sh
