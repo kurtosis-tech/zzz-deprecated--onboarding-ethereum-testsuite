@@ -1,10 +1,11 @@
-import { EnclaveContext, ModuleID } from "kurtosis-core-api-lib";
+import { EnclaveContext, ModuleContext, ModuleID, ServiceID } from "kurtosis-core-api-lib";
 import { KurtosisContext } from "kurtosis-engine-api-lib";
 import * as log from "loglevel";
 import { Result, ok, err } from "neverthrow";
 import { ethers } from "ethers";
 import { strict as assert } from "assert";
 
+const TEST_NAME = "basic-ethereum-test"
 const ETH_MODULE_IMAGE: string = "kurtosistech/ethereum-kurtosis-module";
 const ETH_MODULE_ID: ModuleID = "eth-module";
 
@@ -12,39 +13,38 @@ const IS_PARTITIONING_ENABLED: boolean = false;
 
 describe("Ethereum", function() {
     describe('#basicTest', function() {
-        const enclaveId: string = `basic-ethereum-test_${Date.now()}`;
-
-        // Create enclave
-        let kurtosisCtx: KurtosisContext;
-        let enclaveCtx: EnclaveContext;
-        before(async function() {
+        it("should start the Ethereum cluster and verify it's producting blocks", async function() {
+            // --------------------------------- SETUP ENCLAVE ------------------------------------
             const getKurtosisCtxResult: Result<KurtosisContext, Error> = KurtosisContext.newKurtosisContextFromLocalEngine();
             if (getKurtosisCtxResult.isErr()) {
                 assert.fail(`Getting a Kurtosis context from the local engine threw an error: ${getKurtosisCtxResult.error}`)
             }
-            kurtosisCtx = getKurtosisCtxResult.value;
+            const kurtosisCtx = getKurtosisCtxResult.value;
+
+            const enclaveId = `${TEST_NAME}_${Date.now()}`;
             const createEnclaveResult: Result<EnclaveContext, Error> = await kurtosisCtx.createEnclave(enclaveId, IS_PARTITIONING_ENABLED)
             if (createEnclaveResult.isErr()) {
                 assert.fail(`Creating enclave ${enclaveId} threw an error: ${createEnclaveResult.error}`)
             }
-            enclaveCtx = createEnclaveResult.value;
-        });
+            const enclaveCtx = createEnclaveResult.value;
 
-        // Run test logic
-        it("should start the Ethereum cluster and verify it's producting blocks", async function() {
-            // TODO Replace with Ethereum network setup
+            try {
+                // --------------------------------- SETUP TEST ------------------------------------
 
-            // TODO Replace with block number check
-        })
+                // TODO Replace with Ethereum network setup
 
-        // Stop the enclave after the test is done
-        after(async function() {
-            if (kurtosisCtx !== undefined && enclaveCtx !== undefined) {
+                // --------------------------------- RUN TEST ------------------------------------
+                
+                // TODO Replace with block number check
+
+            } finally {
+                // --------------------------------- TEARDOWN ENCLAVE ------------------------------------
                 const stopEnclaveResult: Result<null, Error> = await kurtosisCtx.stopEnclave(enclaveId)
                 if (stopEnclaveResult.isErr()) {
                     log.error(`ACTION REQUIRED: An error occurred stopping test enclave ${enclaveId}; you'll need to clean this up manually!`)
                 }
             }
+            
         })
     })
 });
