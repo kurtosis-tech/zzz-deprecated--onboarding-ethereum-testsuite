@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "tsc",
-    "test": "ts-mocha -p tsconfig.json 'test/**/*.ts' --timeout 30000"
+    "test": "ts-mocha -p tsconfig.json 'test/**/*.ts' --timeout 60000"
   },
   "files": [
     "build"
