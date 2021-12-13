@@ -15,7 +15,7 @@ describe("Ethereum", function() {
     describe('#basicTest', function() {
         it("should start the Ethereum cluster and verify it's producting blocks", async function() {
             // --------------------------------- SETUP ENCLAVE ------------------------------------
-            const getKurtosisCtxResult: Result<KurtosisContext, Error> = KurtosisContext.newKurtosisContextFromLocalEngine();
+            const getKurtosisCtxResult: Result<KurtosisContext, Error> = await KurtosisContext.newKurtosisContextFromLocalEngine();
             if (getKurtosisCtxResult.isErr()) {
                 assert.fail(`Getting a Kurtosis context from the local engine threw an error: ${getKurtosisCtxResult.error}`)
             }
