@@ -906,10 +906,10 @@ json5@^1.0.1:
   dependencies:
     minimist "^1.2.0"
 
-kurtosis-core-api-lib@1.36.11:
-  version "1.36.11"
-  resolved "https://registry.yarnpkg.com/kurtosis-core-api-lib/-/kurtosis-core-api-lib-1.36.11.tgz#0d963fc5d30913faa3b3f5a47adf305c40401eb8"
-  integrity sha512-YljmQAr1L/D1/MNKxUAxZGj6YUxeTdmj0xYNBNd9kaKBIP2cCRsJmrp5JeKQGcIom/HE2QN/RLdwWKmLe4QzlA==
+kurtosis-core-api-lib@1.36.12:
+  version "1.36.12"
+  resolved "https://registry.yarnpkg.com/kurtosis-core-api-lib/-/kurtosis-core-api-lib-1.36.12.tgz#12b1c8f0b312676f1631fb12e73806d1e6698853"
+  integrity sha512-uf0yBNgsv/fu/abArO6WDjtIk1iz0OQyS+Ph5loaQoVj6PvPJM4IYxTiB4HJICMoqDYtK/xD3kFmFZMEON4d/g==
   dependencies:
     "@grpc/grpc-js" "^1.4.4"
     "@types/google-protobuf" "^3.15.5"
@@ -917,15 +917,15 @@ kurtosis-core-api-lib@1.36.11:
     loglevel "^1.7.1"
     neverthrow "^4.2.2"
 
-kurtosis-engine-api-lib@1.8.1:
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/kurtosis-engine-api-lib/-/kurtosis-engine-api-lib-1.8.1.tgz#8c5f87d73b6d689111743a5e928fff47d47a53f5"
-  integrity sha512-ay/tTsfJaI8Tm/LAlY//JZXj+HZOPQbBOcNR5Q2cM8W8Cymn7scvU53K0FfLu2az6csaU7wnf2tygxUNusO7gw==
+kurtosis-engine-api-lib@1.8.3:
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/kurtosis-engine-api-lib/-/kurtosis-engine-api-lib-1.8.3.tgz#cfe0f9d285a9cbca76a44ee0223098118cd0260f"
+  integrity sha512-W6ssXuh0PmSOJJom3aAkqmKk+lNNt9hO0Ly+sBDUk5L3hoC0zvOOgS3wUxEAG/mcrHk9xHrqRnbwdzPKk4y32w==
   dependencies:
     "@grpc/grpc-js" "^1.4.4"
     "@types/semver" "^7.3.9"
     google-protobuf "^3.17.3"
-    kurtosis-core-api-lib "1.36.11"
+    kurtosis-core-api-lib "1.36.12"
     loglevel "^1.7.1"
     neverthrow "^4.2.2"
     semver "^7.3.5"
