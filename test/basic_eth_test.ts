@@ -11,9 +11,9 @@ const ETH_MODULE_ID: ModuleID = "eth-module";
 
 const IS_PARTITIONING_ENABLED: boolean = false;
 
-describe("Ethereum", function () {
-    describe('#basicTest', function () {
-        it("should start the Ethereum cluster and verify it's producting blocks", async function () {
+describe("Ethereum", function() {
+    describe('#basicTest', function() {
+        it("should start the Ethereum cluster and verify it's producting blocks", async function() {
             // --------------------------------- SETUP ENCLAVE ------------------------------------
             const getKurtosisCtxResult: Result<KurtosisContext, Error> = await KurtosisContext.newKurtosisContextFromLocalEngine();
             if (getKurtosisCtxResult.isErr()) {
@@ -34,7 +34,7 @@ describe("Ethereum", function () {
                 // TODO Replace with Ethereum network setup
 
                 // --------------------------------- RUN TEST ------------------------------------
-
+                
                 // TODO Replace with block number check
 
             } finally {
@@ -44,7 +44,7 @@ describe("Ethereum", function () {
                     log.error(`ACTION REQUIRED: An error occurred stopping test enclave ${enclaveId}; you'll need to clean this up manually!`)
                 }
             }
-
+            
         })
     })
 });

@@ -917,7 +917,7 @@ kurtosis-core-api-lib@1.39.0:
     loglevel "^1.7.1"
     neverthrow "^4.2.2"
 
-kurtosis-engine-api-lib@1.11.0:
+kurtosis-engine-api-lib@^1.11.0:
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/kurtosis-engine-api-lib/-/kurtosis-engine-api-lib-1.11.0.tgz#9279692e4ae60681769b20566707c7baa617a6ca"
   integrity sha512-QfZfhvpn/CyzdmJ3iMZamdegWqhxQnf0UV2tJV7a8qwAxI/eapkFEONXt3hdr2Ajuw6ip9fzh+xRkXdIzJTAbA==
