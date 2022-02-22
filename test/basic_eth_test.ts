@@ -21,7 +21,7 @@ describe("Ethereum", function() {
             }
             const kurtosisCtx = getKurtosisCtxResult.value;
 
-            const enclaveId = `${TEST_NAME}_${Date.now()}`;
+            const enclaveId = `${TEST_NAME}-${Date.now()}`;
             const createEnclaveResult: Result<EnclaveContext, Error> = await kurtosisCtx.createEnclave(enclaveId, IS_PARTITIONING_ENABLED)
             if (createEnclaveResult.isErr()) {
                 assert.fail(`Creating enclave ${enclaveId} threw an error: ${createEnclaveResult.error}`)
