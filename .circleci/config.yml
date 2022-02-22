@@ -27,9 +27,6 @@ jobs:
             circleci-agent step halt
           fi
 
-      # Our build requires downloading images and Docker is restricting anonymous image pulls
-      - run: echo "${DOCKER_PASSWORD}" | docker login -u ${DOCKER_USERNAME} --password-stdin
-
       # Install Kurtosis & start the engine
       - run: |
           echo "deb [trusted=yes] https://apt.fury.io/kurtosis-tech/ /" | sudo tee /etc/apt/sources.list.d/kurtosis.list
@@ -52,8 +49,6 @@ workflows:
                 - develop
                 - master
       - check_code:
-          context:
-            - docker-user
           filters:
             branches:
               ignore:
