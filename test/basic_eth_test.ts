@@ -13,7 +13,7 @@ const IS_PARTITIONING_ENABLED: boolean = false;
 
 describe("Ethereum", function() {
     describe('#basicTest', function() {
-        it("should start the Ethereum cluster and verify it's producting blocks", async function() {
+        it("should start the Ethereum cluster and verify it's producing blocks", async function() {
             // --------------------------------- SETUP ENCLAVE ------------------------------------
             const getKurtosisCtxResult: Result<KurtosisContext, Error> = await KurtosisContext.newKurtosisContextFromLocalEngine();
             if (getKurtosisCtxResult.isErr()) {
