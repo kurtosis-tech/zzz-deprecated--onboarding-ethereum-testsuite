@@ -5,11 +5,11 @@ This is an Ethereum testsuite containing a single test against a private Ethereu
 To run the suite, execute:
 
 ```
-bash scripts/build-and-run.sh all
+bash scripts/build.sh all
 ```
 
 To see help information, execute:
 
 ```
-bash scripts/build-and-run.sh help
+bash scripts/build.sh help
 ```
